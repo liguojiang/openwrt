@@ -1,0 +1,10 @@
+CONFIG_TARGET_ar71xx=y
+CONFIG_TARGET_ar71xx_generic=y
+CONFIG_TARGET_ar71xx_generic_Default=y
+CONFIG_IB=y
+CONFIG_PACKAGE_altermesh-4mb=m
+CONFIG_PACKAGE_altermesh-8mb=m
+CONFIG_PACKAGE_altermesh-base=m
+CONFIG_PACKAGE_lime-system=m
+CONFIG_PACKAGE_nodogsplash=m
+CONFIG_KMOD_BATMAN_ADV_DEBUG_LOG=y
