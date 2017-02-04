@@ -391,7 +391,12 @@ platform_check_image() {
 		alfa_check_image "$1" && return 0
 		return 1
 		;;
-
+		
+	ap9341fe | \
+	cf-e316nv2 | \
+	cf-e325n | \
+	cf-wr600n | \
+	cf-wr605n | \
 	unifi-outdoor-plus | \
 	uap-pro)
 		[ "$magic_long" != "19852003" ] && {
@@ -400,6 +405,22 @@ platform_check_image() {
 		}
 		return 0
 		;;
+
+	cf-e350n | \
+	cf-e355ac | \
+	cf-e380ac | \
+	cf-e520n | \
+	cf-e530n | \
+	cf-wr610n | \
+	cf-wr615n | \
+	cf-wr650ac)
+		[ "$magic_long" != "27051956" ] && {
+			echo "Invalid image type."
+			return 1
+		}
+		return 0
+		;;
+		
 	wndr3700 | \
 	wnr2000-v3 | \
 	wnr612-v2 | \
@@ -531,6 +552,19 @@ platform_do_upgrade() {
 	om5p-an)
 		platform_do_upgrade_openmesh "$ARGV"
 		;;
+	ap9341fe | \
+	cf-e316nv2 | \
+	cf-e325n | \
+	cf-e350n | \
+	cf-e355ac | \
+	cf-e380ac | \
+	cf-wr600n | \
+	cf-wr605n | \
+	cf-wr610n | \
+	cf-wr615n | \
+	cf-e520n | \
+	cf-e530n | \
+	cf-wr650ac | \		
 	unifi-outdoor-plus | \
 	uap-pro)
 		MTD_CONFIG_ARGS="-s 0x180000"
