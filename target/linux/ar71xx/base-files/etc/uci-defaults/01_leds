@@ -50,6 +50,111 @@ bsb)
 	ucidef_set_led_default "sys" "SYS" "bsb:red:sys" "1"
 	;;
 
+ap9341fe)
+	ucidef_set_led_default "lan" "LAN" "comfast:green" "1"
+	ucidef_set_led_netdev "wan" "WAN" "comfast:red" "eth1"
+	ucidef_set_led_netdev "lan" "LAN" "comfast:green" "eth0"
+	ucidef_set_led_wlan "wlan" "WLAN" "comfast:blue" "phy0tpt"
+	;;
+
+cf-e316nv2)
+	ucidef_set_led_netdev "wan" "WAN" "comfast:white:wan" "eth1"
+	ucidef_set_led_netdev "lan" "LAN" "comfast:white:lan" "eth0"
+	ucidef_set_led_wlan "wlan" "WLAN" "comfast:white:wifi" "phy0tpt"
+	;;
+
+cf-e325n)
+	ucidef_set_led_netdev "wan" "WAN" "comfast:red" "eth1"
+	ucidef_set_led_netdev "lan" "LAN" "comfast:green" "eth0"
+	ucidef_set_led_wlan "wlan" "WLAN" "comfast:blue" "phy0tpt"
+	;;
+
+cf-e350n)
+	ucidef_set_led_netdev "wan1" "WAN1" "comfast:green:wan1" "eth1"
+	ucidef_set_led_switch "lan1" "LAN1" "comfast:green:lan1" "switch0" "0x02"
+	ucidef_set_led_switch "lan2" "LAN2" "comfast:green:lan2" "switch0" "0x04"
+	ucidef_set_led_switch "lan3" "LAN3" "comfast:green:lan3" "switch0" "0x08"
+	ucidef_set_led_switch "lan4" "LAN4" "comfast:green:lan4" "switch0" "0x10"
+	ucidef_set_led_netdev "wan" "WAN" "comfast:red:wan" "eth1"
+	ucidef_set_led_netdev "lan" "LAN" "comfast:green:lan" "eth0"
+	ucidef_set_led_wlan "wlan" "WLAN" "comfast:blue:wlan" "phy0tpt"
+	;;
+			
+cf-wr600n)
+	ucidef_set_led_netdev "wan1" "WAN1" "cf_wr600n:green:wan1" "eth0"
+	ucidef_set_led_switch "lan1" "LAN1" "cf_wr600n:green:lan1" "switch0" "0x04"
+	ucidef_set_led_switch "lan2" "LAN2" "cf_wr600n:green:lan2" "switch0" "0x08"
+	ucidef_set_led_switch "lan3" "LAN3" "cf_wr600n:green:lan3" "switch0" "0x10"
+#	ucidef_set_led_switch "lan4" "LAN4" "cf_wr600n:green:lan4" "switch0" "0x02"
+#	ucidef_set_led_default "lan" "LAN" "comfast:green" "1"
+	ucidef_set_led_netdev "wan" "WAN" "comfast:red" "eth0"
+	ucidef_set_led_netdev "lan" "LAN" "comfast:green" "eth1"
+	ucidef_set_led_wlan "wlan" "WLAN" "comfast:blue" "phy0tpt"
+	;;
+
+cf-wr605n)
+	ucidef_set_led_netdev "wan1" "WAN1" "cf_wr605n:green:wan1" "eth0"
+	ucidef_set_led_switch "lan1" "LAN1" "cf_wr605n:green:lan1" "switch0" "0x04"
+	ucidef_set_led_switch "lan2" "LAN2" "cf_wr605n:green:lan2" "switch0" "0x08"
+	ucidef_set_led_switch "lan3" "LAN3" "cf_wr605n:green:lan3" "switch0" "0x10"
+#	ucidef_set_led_switch "lan4" "LAN4" "cf_wr600n:green:lan4" "switch0" "0x02"
+#	ucidef_set_led_default "lan" "LAN" "comfast:green" "1"
+	ucidef_set_led_netdev "wan" "WAN" "cf_wr605n:white:wan" "eth0"
+	ucidef_set_led_netdev "lan" "LAN" "cf_wr605n:white:lan" "eth1"
+	ucidef_set_led_wlan "wlan" "WLAN" "cf_wr605n:white:wifi" "phy0tpt"
+	;;
+
+cf-wr610n)
+	ucidef_set_led_netdev "wan1" "WAN1" "comfast:green:wan1" "eth1"
+	ucidef_set_led_switch "lan1" "LAN1" "comfast:green:lan1" "switch0" "0x02"
+	ucidef_set_led_switch "lan2" "LAN2" "comfast:green:lan2" "switch0" "0x04"
+	ucidef_set_led_switch "lan3" "LAN3" "comfast:green:lan3" "switch0" "0x08"
+	ucidef_set_led_switch "lan4" "LAN4" "comfast:green:lan4" "switch0" "0x10"
+	ucidef_set_led_netdev "wan" "WAN" "comfast:red:wan" "eth1"
+	ucidef_set_led_netdev "lan" "LAN" "comfast:green:lan" "eth0"
+	ucidef_set_led_wlan "wlan" "WLAN" "comfast:blue:wlan" "phy0tpt"
+	;;
+
+cf-wr615n)
+	ucidef_set_led_netdev "wan1" "WAN1" "comfast:green:wan1" "eth1"
+	ucidef_set_led_switch "lan1" "LAN1" "comfast:green:lan1" "switch0" "0x02"
+	ucidef_set_led_switch "lan2" "LAN2" "comfast:green:lan2" "switch0" "0x04"
+	ucidef_set_led_switch "lan3" "LAN3" "comfast:green:lan3" "switch0" "0x08"
+	ucidef_set_led_switch "lan4" "LAN4" "comfast:green:lan4" "switch0" "0x10"
+#	ucidef_set_led_netdev "wan" "WAN" "comfast:red:wan" "eth1"
+#	ucidef_set_led_netdev "lan" "LAN" "comfast:green:lan" "eth0"
+#	ucidef_set_led_wlan "wlan" "WLAN" "comfast:blue:wlan" "phy0tpt"
+	ucidef_set_led_wlan "wlan" "WLAN" "comfast:blue:wifi" "phy0tpt"
+	;;
+
+cf-e355ac)
+	ucidef_set_led_netdev "wan" "WAN" "comfast:red:wan" "eth1"
+	ucidef_set_led_netdev "lan" "LAN" "comfast:green:lan" "eth0"
+	ucidef_set_led_wlan "wlan" "WLAN" "comfast:blue:wlan" "phy0tpt"
+	;;
+
+cf-e380ac)
+	ucidef_set_led_netdev "wan" "WAN" "comfast:red:wan" "eth1"
+	ucidef_set_led_netdev "lan" "LAN" "comfast:green:lan" "eth0"
+	ucidef_set_led_wlan "wlan" "WLAN" "comfast:blue:wlan" "phy0tpt"
+	;;
+
+cf-e520n | \
+cf-e530n)
+	ucidef_set_led_netdev "wan1" "WAN1" "comfast:blue:wan" "eth1"
+	;;
+
+cf-wr650ac)
+#	ucidef_set_led_netdev "wan1" "WAN1" "comfast:green:wan1" "eth1"
+#	ucidef_set_led_switch "lan1" "LAN1" "comfast:green:lan1" "switch0" "0x02"
+#	ucidef_set_led_switch "lan2" "LAN2" "comfast:green:lan2" "switch0" "0x04"
+#	ucidef_set_led_switch "lan3" "LAN3" "comfast:green:lan3" "switch0" "0x08"
+#	ucidef_set_led_switch "lan4" "LAN4" "comfast:green:lan4" "switch0" "0x10"
+#	ucidef_set_led_netdev "wan" "WAN" "comfast:red:wan" "eth1"
+#	ucidef_set_led_netdev "lan" "LAN" "comfast:green:lan" "eth0"
+	ucidef_set_led_wlan "wlan" "WLAN" "comfast:blue:wlan" "phy0tpt"
+	;;
+
 bullet-m | \
 nanostation-m | \
 rocket-m | \
