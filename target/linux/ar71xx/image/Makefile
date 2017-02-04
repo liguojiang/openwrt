@@ -1409,6 +1409,202 @@ define Image/Build/UAPPRO
 		-o $(call factoryname,$(1),$(2))
 endef
 
+Image/Build/COMFAST/initramfs=$(call MkuImageLzma/initramfs,$(2),$(3) $(comfast_mtdlayout))
+define Image/Build/COMFAST/buildkernel
+	$(call MkuImageLzma,$(2),$(3) $(comfast_mtdlayout))
+	-rm -rf $(KDIR_TMP)/$(2)
+	mkdir -p $(KDIR_TMP)/$(2)/image
+	cp $(KDIR_TMP)/vmlinux-$(2).uImage $(KDIR_TMP)/$(2)/image/kernel0
+	$(STAGING_DIR_HOST)/bin/mkfs.jffs2 \
+		--pad --big-endian --squash-uids -v -e 64KiB \
+		-o $(KDIR_TMP)/$(2)-kernel.jffs2 \
+		-d $(KDIR_TMP)/$(2)/image \
+		2>&1 1>/dev/null | awk '/^.+$$$$/'
+	-rm -rf $(KDIR_TMP)/$(2)
+	$(STAGING_DIR_HOST)/bin/padjffs2 $(KDIR_TMP)/$(2)-kernel.jffs2 -J 64
+endef
+
+define Image/Build/COMFAST
+	$(call CatFiles,$(KDIR_TMP)/$(2)-kernel.jffs2,1572864,$(KDIR)/root.$(1),14548992,$(call sysupname,$(1),$(2)))
+	-$(STAGING_DIR_HOST)/bin/mkfwimage2 -f 0x9f000000 \
+		-v $(5).$(6).v6.0.0-OpenWrt-$(REVISION) \
+		-p jffs2:0x50000:0xf60000:0:0:$(call sysupname,$(1),$(2)) \
+		-o $(call factoryname,$(1),$(2))
+endef
+
+Image/Build/COMFAST_CF_WR600N/initramfs=$(call MkuImageLzma/initramfs,$(2),$(3) $(ar9341_cf_wr600n_mtdlayout))
+define Image/Build/COMFAST_CF_WR600N/buildkernel
+	$(call MkuImageLzma,$(2),$(3) $(ar9341_cf_wr600n_mtdlayout))
+	-rm -rf $(KDIR_TMP)/$(2)
+	mkdir -p $(KDIR_TMP)/$(2)/image
+	cp $(KDIR_TMP)/vmlinux-$(2).uImage $(KDIR_TMP)/$(2)/image/kernel0
+	$(STAGING_DIR_HOST)/bin/mkfs.jffs2 \
+		--pad --big-endian --squash-uids -v -e 64KiB \
+		-o $(KDIR_TMP)/$(2)-kernel.jffs2 \
+		-d $(KDIR_TMP)/$(2)/image \
+		2>&1 1>/dev/null | awk '/^.+$$$$/'
+	-rm -rf $(KDIR_TMP)/$(2)
+	$(STAGING_DIR_HOST)/bin/padjffs2 $(KDIR_TMP)/$(2)-kernel.jffs2 -J 64
+endef
+
+define Image/Build/COMFAST_CF_WR600N
+	$(call CatFiles,$(KDIR_TMP)/$(2)-kernel.jffs2,1572864,$(KDIR)/root.$(1),14548992,$(call sysupname,$(1),$(2)))
+	-$(STAGING_DIR_HOST)/bin/mkfwimage2 -f 0x9f000000 \
+		-v $(5).$(6).v6.0.0-OpenWrt-$(REVISION) \
+		-p jffs2:0x50000:0xf60000:0:0:$(call sysupname,$(1),$(2)) \
+		-o $(call factoryname,$(1),$(2))
+endef
+
+Image/Build/COMFAST_CF_WR605N/initramfs=$(call MkuImageLzma/initramfs,$(2),$(3) $(ar9341_cf_wr605n_mtdlayout))
+define Image/Build/COMFAST_CF_WR605N/buildkernel
+	$(call MkuImageLzma,$(2),$(3) $(ar9341_cf_wr605n_mtdlayout))
+	-rm -rf $(KDIR_TMP)/$(2)
+	mkdir -p $(KDIR_TMP)/$(2)/image
+	cp $(KDIR_TMP)/vmlinux-$(2).uImage $(KDIR_TMP)/$(2)/image/kernel0
+	$(STAGING_DIR_HOST)/bin/mkfs.jffs2 \
+		--pad --big-endian --squash-uids -v -e 64KiB \
+		-o $(KDIR_TMP)/$(2)-kernel.jffs2 \
+		-d $(KDIR_TMP)/$(2)/image \
+		2>&1 1>/dev/null | awk '/^.+$$$$/'
+	-rm -rf $(KDIR_TMP)/$(2)
+	$(STAGING_DIR_HOST)/bin/padjffs2 $(KDIR_TMP)/$(2)-kernel.jffs2 -J 64
+endef
+
+define Image/Build/COMFAST_CF_WR605N
+	$(call CatFiles,$(KDIR_TMP)/$(2)-kernel.jffs2,1572864,$(KDIR)/root.$(1),14548992,$(call sysupname,$(1),$(2)))
+	-$(STAGING_DIR_HOST)/bin/mkfwimage2 -f 0x9f000000 \
+		-v $(5).$(6).v6.0.0-OpenWrt-$(REVISION) \
+		-p jffs2:0x50000:0xf60000:0:0:$(call sysupname,$(1),$(2)) \
+		-o $(call factoryname,$(1),$(2))
+endef
+
+Image/Build/COMFAST_CF_E316NV2/initramfs=$(call MkuImageLzma/initramfs,$(2),$(3) $(ar9341_cf_e316nv2_mtdlayout))
+define Image/Build/COMFAST_CF_E316NV2/buildkernel
+	$(call MkuImageLzma,$(2),$(3) $(ar9341_cf_e316nv2_mtdlayout))
+	-rm -rf $(KDIR_TMP)/$(2)
+	mkdir -p $(KDIR_TMP)/$(2)/image
+	cp $(KDIR_TMP)/vmlinux-$(2).uImage $(KDIR_TMP)/$(2)/image/kernel0
+	$(STAGING_DIR_HOST)/bin/mkfs.jffs2 \
+		--pad --big-endian --squash-uids -v -e 64KiB \
+		-o $(KDIR_TMP)/$(2)-kernel.jffs2 \
+		-d $(KDIR_TMP)/$(2)/image \
+		2>&1 1>/dev/null | awk '/^.+$$$$/'
+	-rm -rf $(KDIR_TMP)/$(2)
+	$(STAGING_DIR_HOST)/bin/padjffs2 $(KDIR_TMP)/$(2)-kernel.jffs2 -J 64
+endef
+
+define Image/Build/COMFAST_CF_E316NV2
+	$(call CatFiles,$(KDIR_TMP)/$(2)-kernel.jffs2,1572864,$(KDIR)/root.$(1),14548992,$(call sysupname,$(1),$(2)))
+	-$(STAGING_DIR_HOST)/bin/mkfwimage2 -f 0x9f000000 \
+		-v $(5).$(6).v6.0.0-OpenWrt-$(REVISION) \
+		-p jffs2:0x50000:0xf60000:0:0:$(call sysupname,$(1),$(2)) \
+		-o $(call factoryname,$(1),$(2))
+endef
+
+Image/Build/COMFAST_CF_E325N/initramfs=$(call MkuImageLzma/initramfs,$(2),$(3) $(ar9341_cf_e325n_mtdlayout))
+define Image/Build/COMFAST_CF_E325N/buildkernel
+	$(call MkuImageLzma,$(2),$(3) $(ar9341_cf_e325n_mtdlayout))
+	-rm -rf $(KDIR_TMP)/$(2)
+	mkdir -p $(KDIR_TMP)/$(2)/image
+	cp $(KDIR_TMP)/vmlinux-$(2).uImage $(KDIR_TMP)/$(2)/image/kernel0
+	$(STAGING_DIR_HOST)/bin/mkfs.jffs2 \
+		--pad --big-endian --squash-uids -v -e 64KiB \
+		-o $(KDIR_TMP)/$(2)-kernel.jffs2 \
+		-d $(KDIR_TMP)/$(2)/image \
+		2>&1 1>/dev/null | awk '/^.+$$$$/'
+	-rm -rf $(KDIR_TMP)/$(2)
+	$(STAGING_DIR_HOST)/bin/padjffs2 $(KDIR_TMP)/$(2)-kernel.jffs2 -J 64
+endef
+
+define Image/Build/COMFAST_CF_E325N
+	$(call CatFiles,$(KDIR_TMP)/$(2)-kernel.jffs2,1572864,$(KDIR)/root.$(1),14548992,$(call sysupname,$(1),$(2)))
+	-$(STAGING_DIR_HOST)/bin/mkfwimage2 -f 0x9f000000 \
+		-v $(5).$(6).v6.0.0-OpenWrt-$(REVISION) \
+		-p jffs2:0x50000:0xf60000:0:0:$(call sysupname,$(1),$(2)) \
+		-o $(call factoryname,$(1),$(2))
+endef
+
+define Image/Build/COMFAST_CF_E350N
+	$(call MkuImageLzma,$(2),$(3) $(4))
+	dd if=$(KDIR_TMP)/vmlinux-$(2).uImage \
+		of=$(call imgname,kernel,$(2)).bin bs=64k conv=sync; \
+	dd if=$(KDIR)/root.$(1) \
+		of=$(call imgname,$(1),$(2)-rootfs).bin bs=128k conv=sync; \
+	( dd if=$(KDIR_TMP)/vmlinux-$(2).uImage bs=1572864 conv=sync; dd if=$(KDIR)/root.$(1) ) \
+		> $(call imgname,$(1),$(2))-sysupgrade.bin
+endef
+
+define Image/Build/COMFAST_CF_E355AC
+	$(call MkuImageLzma,$(2),$(3) $(4))
+	dd if=$(KDIR_TMP)/vmlinux-$(2).uImage \
+		of=$(call imgname,kernel,$(2)).bin bs=64k conv=sync; \
+	dd if=$(KDIR)/root.$(1) \
+		of=$(call imgname,$(1),$(2)-rootfs).bin bs=128k conv=sync; \
+	( dd if=$(KDIR_TMP)/vmlinux-$(2).uImage bs=1572864 conv=sync; dd if=$(KDIR)/root.$(1) ) \
+		> $(call imgname,$(1),$(2))-sysupgrade.bin
+endef
+
+define Image/Build/COMFAST_CF_WR610N
+	$(call MkuImageLzma,$(2),$(3) $(4))
+	dd if=$(KDIR_TMP)/vmlinux-$(2).uImage \
+		of=$(call imgname,kernel,$(2)).bin bs=64k conv=sync; \
+	dd if=$(KDIR)/root.$(1) \
+		of=$(call imgname,$(1),$(2)-rootfs).bin bs=128k conv=sync; \
+	( dd if=$(KDIR_TMP)/vmlinux-$(2).uImage bs=1572864 conv=sync; dd if=$(KDIR)/root.$(1) ) \
+		> $(call imgname,$(1),$(2))-sysupgrade.bin
+endef
+
+define Image/Build/COMFAST_CF_WR615N
+	$(call MkuImageLzma,$(2),$(3) $(4))
+	dd if=$(KDIR_TMP)/vmlinux-$(2).uImage \
+		of=$(call imgname,kernel,$(2)).bin bs=64k conv=sync; \
+	dd if=$(KDIR)/root.$(1) \
+		of=$(call imgname,$(1),$(2)-rootfs).bin bs=128k conv=sync; \
+	( dd if=$(KDIR_TMP)/vmlinux-$(2).uImage bs=1572864 conv=sync; dd if=$(KDIR)/root.$(1) ) \
+		> $(call imgname,$(1),$(2))-sysupgrade.bin
+endef
+
+define Image/Build/COMFAST_CF_E380AC
+	$(call MkuImageLzma,$(2),$(3) $(4))
+	dd if=$(KDIR_TMP)/vmlinux-$(2).uImage \
+		of=$(call imgname,kernel,$(2)).bin bs=64k conv=sync; \
+	dd if=$(KDIR)/root.$(1) \
+		of=$(call imgname,$(1),$(2)-rootfs).bin bs=128k conv=sync; \
+	( dd if=$(KDIR_TMP)/vmlinux-$(2).uImage bs=1572864 conv=sync; dd if=$(KDIR)/root.$(1) ) \
+		> $(call imgname,$(1),$(2))-sysupgrade.bin
+endef
+
+define Image/Build/COMFAST_CF_E520N
+	$(call MkuImageLzma,$(2),$(3) $(4))
+	dd if=$(KDIR_TMP)/vmlinux-$(2).uImage \
+		of=$(call imgname,kernel,$(2)).bin bs=64k conv=sync; \
+	dd if=$(KDIR)/root.$(1) \
+		of=$(call imgname,$(1),$(2)-rootfs).bin bs=128k conv=sync; \
+	( dd if=$(KDIR_TMP)/vmlinux-$(2).uImage bs=1572864 conv=sync; dd if=$(KDIR)/root.$(1) ) \
+		> $(call imgname,$(1),$(2))-sysupgrade.bin
+endef
+
+define Image/Build/COMFAST_CF_E530N
+	$(call MkuImageLzma,$(2),$(3) $(4))
+	dd if=$(KDIR_TMP)/vmlinux-$(2).uImage \
+		of=$(call imgname,kernel,$(2)).bin bs=64k conv=sync; \
+	dd if=$(KDIR)/root.$(1) \
+		of=$(call imgname,$(1),$(2)-rootfs).bin bs=128k conv=sync; \
+	( dd if=$(KDIR_TMP)/vmlinux-$(2).uImage bs=1572864 conv=sync; dd if=$(KDIR)/root.$(1) ) \
+		> $(call imgname,$(1),$(2))-sysupgrade.bin
+endef
+
+define Image/Build/COMFAST_CF_WR650AC
+	$(call MkuImageLzma,$(2),$(3) $(4))
+	dd if=$(KDIR_TMP)/vmlinux-$(2).uImage \
+		of=$(call imgname,kernel,$(2)).bin bs=64k conv=sync; \
+	dd if=$(KDIR)/root.$(1) \
+		of=$(call imgname,$(1),$(2)-rootfs).bin bs=128k conv=sync; \
+	( dd if=$(KDIR_TMP)/vmlinux-$(2).uImage bs=1572864 conv=sync; dd if=$(KDIR)/root.$(1) ) \
+		> $(call imgname,$(1),$(2))-sysupgrade.bin
+endef
+
+
 # $(4) = board (XS2, XS5, RS, XM)
 # $(5) = series (BZ, XM, XW)
 # $(6) = chip (ar7240, ar934x)
@@ -2076,7 +2272,20 @@ $(eval $(call SingleProfile,TPLINK-SAFELOADER,64kraw,CPE510,cpe210-220-510-520,C
 
 $(eval $(call SingleProfile,UAPPRO,64k,UAPPRO,ubnt-uap-pro,UAP-PRO,ttyS0,115200,BZ,BZ,ar934x))
 $(eval $(call SingleProfile,UAPPRO,64k,UBNTUNIFIOUTDOORPLUS,ubnt-unifi-outdoor-plus,UBNT-UOP,ttyS0,115200,BZ,BZ,ar7240))
-
+$(eval $(call SingleProfile,COMFAST,64k,COMFASTAP9341FE,comfast-ap9341fe,COMFAST-AP9341FE,ttyS0,115200,AP9341FE,AP9341FE,ar934x))
+$(eval $(call SingleProfile,COMFAST,64k,COMFASTCFWR600N,comfast-cf-wr600n,COMFAST-CF-WR600N,ttyS0,115200,CF-WR600N,CF-WR600N,ar934x))
+$(eval $(call SingleProfile,COMFAST,64k,COMFASTCFWR605N,comfast-cf-wr605n,COMFAST-CF-WR605N,ttyS0,115200,CF-WR605N,CF-WR605N,ar934x))
+$(eval $(call SingleProfile,COMFAST,64k,COMFASTCFE316NV2,comfast-cf-e316nv2,COMFAST-CF-E316NV2,ttyS0,115200,CF-E316NV2,CF-E316NV2,ar934x))
+$(eval $(call SingleProfile,COMFAST,64k,COMFASTCFE325N,comfast-cf-e325n,COMFAST-CF-E325N,ttyS0,115200,CF-E325N,CF-E325N,ar934x))
+$(eval $(call SingleProfile,COMFAST_CF_WR610N,64k,COMFASTCFWR610N,comfast-cf-wr610n,COMFAST-CF-WR610N,ttyS0,115200,$$(qca9531_cf_wr610n_mtdlayout),CF-WR610N,qca953x))
+$(eval $(call SingleProfile,COMFAST_CF_E350N,64k,COMFASTCFE350N,comfast-cf-e350n,COMFAST-CF-E350N,ttyS0,115200,$$(qca9531_cf_e350n_mtdlayout),CF-E350N,qca953x))
+$(eval $(call SingleProfile,COMFAST_CF_E355AC,64k,COMFASTCFE355AC,comfast-cf-e355ac,COMFAST-CF-E355AC,ttyS0,115200,$$(qca9531_cf_e355ac_mtdlayout),CF-E355AC,qca953x))
+$(eval $(call SingleProfile,COMFAST_CF_WR615N,64k,COMFASTCFWR615N,comfast-cf-wr615n,COMFAST-CF-WR615N,ttyS0,115200,$$(qca9531_cf_wr615n_mtdlayout),CF-WR615N,qca953x))
+$(eval $(call SingleProfile,COMFAST_CF_E380AC,64k,COMFASTCFE380AC,comfast-cf-e380ac,COMFAST-CF-E380AC,ttyS0,115200,$$(qca9558_cf_e380ac_mtdlayout),CF-E380AC,qca955x))
+$(eval $(call SingleProfile,COMFAST_CF_E520N,64k,COMFASTCFE520N,comfast-cf-e520n,COMFAST-CF-E520N,ttyS0,115200,$$(qca9531_cf_e520n_mtdlayout),CF-E520N,qca953x))
+$(eval $(call SingleProfile,COMFAST_CF_E530N,64k,COMFASTCFE530N,comfast-cf-e530n,COMFAST-CF-E530N,ttyS0,115200,$$(qca9531_cf_e530n_mtdlayout),CF-E530N,qca953x))
+$(eval $(call SingleProfile,COMFAST_CF_WR650AC,64k,COMFASTCFWR650AC,comfast-cf-wr650ac,COMFAST-CF-WR650AC,ttyS0,115200,$$(qca9558_cf_wr650ac_mtdlayout),CF-WR650AC,qca955x))
+ 
 $(eval $(call SingleProfile,UBDEV,64kraw,UBDEV01,ubdev01,UBNT-UF,ttyS0,115200,UBDEV01,XM,ar7240))
 
 $(eval $(call SingleProfile,UBNT,64k,UBNTRS,ubnt-rs,UBNT-RS,ttyS0,115200,RS,RSx,ar7100))
