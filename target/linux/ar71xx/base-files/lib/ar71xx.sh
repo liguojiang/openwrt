@@ -396,6 +396,45 @@ ar71xx_board_detect() {
 	*CAP4200AG)
 		name="cap4200ag"
 		;;
+	*AP9341FE)
+		name="ap9341fe"
+		;;
+	*CF-E316NV2)
+		name="cf-e316nv2"
+		;;
+	*CF-E325N)
+		name="cf-e325n"
+		;;
+	*CF-E350N)
+		name="cf-e350n"
+		;;
+	*CF-WR600N)
+		name="cf-wr600n"
+		;;
+	*CF-WR605N)
+		name="cf-wr605n"
+		;;
+	*"CF-WR610N")
+		name="cf-wr610n"
+		;;
+	*"CF-WR650AC")
+		name="cf-wr650ac"
+		;;
+	*"CF-WR615N")
+		name="cf-wr615n"
+		;;
+	*"CF-E355AC")
+		name="cf-e355ac"
+		;;
+	*"CF-E380AC")
+		name="cf-e380ac"
+		;;
+	*"CF-E520N")
+		name="cf-e520n"
+		;;
+	*"CF-E530N")
+		name="cf-e530n"
+		;;		
 	*"CPE210/220/510/520")
 		name="cpe510"
 		tplink_pharos_board_detect
