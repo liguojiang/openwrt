@@ -45,6 +45,186 @@ ap136-010)
 	ucidef_add_switch_vlan "switch0" "2" "5 6"
 	;;
 
+ap9341fe)
+	ucidef_set_interfaces_lan_wan "eth0" "eth1"
+	ucidef_add_switch "switch0" "1" "1"
+	ucidef_add_switch_vlan "switch0" "1" "0 1 2 3 4" 
+	lan_mac=$(cat /sys/class/net/eth0/address)
+	wlan_mac=$(macaddr_add "$lan_mac" 1)
+	wan_mac=$(macaddr_add "$lan_mac" 2)
+	sta_mac=$(macaddr_add "$lan_mac" 3)
+	[ -n "$lan_mac" ] && ucidef_set_interface_macaddr lan $lan_mac
+	[ -n "$wlan_mac" ] && ucidef_set_wireless_macaddr radio0 $wlan_mac
+	[ -n "$wan_mac" ] && ucidef_set_interface_macaddr wan $wan_mac
+	[ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ]&& \
+	ucidef_set_interface_def_macaddr $lan_mac $wan_mac $wlan_mac $sta_mac
+	;;
+
+cf-e316nv2)
+	ucidef_set_interfaces_lan_wan "eth0" "eth1"
+	ucidef_add_switch "switch0" "1" "1"
+	ucidef_add_switch_vlan "switch0" "1" "0 1 2 3 4" 
+	lan_mac=$(cat /sys/class/net/eth0/address)
+	wlan_mac=$(macaddr_add "$lan_mac" 1)
+	wan_mac=$(macaddr_add "$lan_mac" 2)
+	sta_mac=$(macaddr_add "$lan_mac" 3)
+[ -n "$lan_mac" ] && ucidef_set_interface_macaddr lan $lan_mac
+	[ -n "$wlan_mac" ] && ucidef_set_wireless_macaddr radio0 $wlan_mac
+	[ -n "$wan_mac" ] && ucidef_set_interface_macaddr wan $wan_mac	
+	[ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ]&& \
+	ucidef_set_interface_def_macaddr $lan_mac $wan_mac $wlan_mac $sta_mac
+	;;
+
+cf-e325n)
+	ucidef_set_interfaces_lan_wan "eth0" "eth1"
+	ucidef_add_switch "switch0" "1" "1"
+	ucidef_add_switch_vlan "switch0" "1" "0 1 2 3 4" 
+	lan_mac=$(cat /sys/class/net/eth0/address)
+	wlan_mac=$(macaddr_add "$lan_mac" 1)
+	wan_mac=$(macaddr_add "$lan_mac" 2)
+	sta_mac=$(macaddr_add "$lan_mac" 3)
+	[ -n "$lan_mac" ] && ucidef_set_interface_macaddr lan $lan_mac
+	[ -n "$wlan_mac" ] && ucidef_set_wireless_macaddr radio0 $wlan_mac
+	[ -n "$wan_mac" ] && ucidef_set_interface_macaddr wan $wan_mac
+	[ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ]&& \
+	ucidef_set_interface_def_macaddr $lan_mac $wan_mac $wlan_mac $sta_mac
+	ucidef_set_interface_relayd
+	;;
+
+cf-e350n)
+	ucidef_set_interfaces_lan_wan "eth0" "eth1"
+	ucidef_add_switch "switch0" "1" "1"
+	ucidef_add_switch_vlan "switch0" "1" "0 1 2 3 4"
+	lan_mac=$(cat /sys/class/net/eth0/address)
+	wlan_mac=$(macaddr_dec "$lan_mac" 1)
+	wan_mac=$(macaddr_dec "$lan_mac" 2)
+	sta_mac=$(macaddr_add "$lan_mac" 1)
+	[ -n "$lan_mac" ] && ucidef_set_interface_macaddr lan $lan_mac
+	[ -n "$wlan_mac" ] && ucidef_set_wireless_macaddr radio0 $wlan_mac
+	[ -n "$wan_mac" ] && ucidef_set_interface_macaddr wan $wan_mac
+	[ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ]&& \
+	ucidef_set_interface_def_macaddr $lan_mac $wan_mac $wlan_mac $sta_mac
+	ucidef_set_interface_relayd
+	;;
+	
+cf-wr600n)
+	ucidef_set_interfaces_lan_wan "eth1" "eth0"
+	ucidef_add_switch "switch0" "1" "1"
+	ucidef_add_switch_vlan "switch0" "1" "0 1 2 3 4"
+	lan_mac=$(cat /sys/class/net/eth1/address)
+	wlan_mac=$(macaddr_dec "$lan_mac" 1)
+	wan_mac=$(macaddr_dec "$lan_mac" 2)
+	sta_mac=$(macaddr_add "$lan_mac" 1)
+	[ -n "$lan_mac" ] && ucidef_set_interface_macaddr lan $lan_mac
+	[ -n "$wlan_mac" ] && ucidef_set_wireless_macaddr radio0 $wlan_mac
+	[ -n "$wan_mac" ] && ucidef_set_interface_macaddr wan $wan_mac
+	[ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ]&& \
+	ucidef_set_interface_def_macaddr $lan_mac $wan_mac $wlan_mac $sta_mac
+	;;
+
+cf-wr605n)
+	ucidef_set_interfaces_lan_wan "eth1" "eth0"
+	ucidef_add_switch "switch0" "1" "1"
+	ucidef_add_switch_vlan "switch0" "1" "0 1 2 3 4"
+	lan_mac=$(cat /sys/class/net/eth1/address)
+	wlan_mac=$(macaddr_dec "$lan_mac" 1)
+	wan_mac=$(macaddr_dec "$lan_mac" 2)
+	sta_mac=$(macaddr_add "$lan_mac" 1)
+	[ -n "$lan_mac" ] && ucidef_set_interface_macaddr lan $lan_mac
+	[ -n "$wlan_mac" ] && ucidef_set_wireless_macaddr radio0 $wlan_mac
+	[ -n "$wan_mac" ] && ucidef_set_interface_macaddr wan $wan_mac
+	[ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ]&& \
+	ucidef_set_interface_def_macaddr $lan_mac $wan_mac $wlan_mac $sta_mac
+	;;
+
+cf-wr610n)
+	ucidef_set_interfaces_lan_wan "eth0" "eth1"
+	ucidef_add_switch "switch0" "1" "1"
+	ucidef_add_switch_vlan "switch0" "1" "0 1 2 3 4"
+	lan_mac=$(cat /sys/class/net/eth0/address)
+	wlan_mac=$(macaddr_add "$lan_mac" 1)
+	wan_mac=$(macaddr_add "$lan_mac" 2)
+	sta_mac=$(macaddr_add "$lan_mac" 3)
+	[ -n "$lan_mac" ] && ucidef_set_interface_macaddr lan $lan_mac
+	[ -n "$wlan_mac" ] && ucidef_set_wireless_macaddr radio0 $wlan_mac
+	[ -n "$wan_mac" ] && ucidef_set_interface_macaddr wan $wan_mac
+	[ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ]&& \
+	ucidef_set_interface_def_macaddr $lan_mac $wan_mac $wlan_mac $sta_mac
+	;;
+
+cf-wr615n)
+	ucidef_set_interfaces_lan_wan "eth0" "eth1"
+	ucidef_add_switch "switch0" "1" "1"
+	ucidef_add_switch_vlan "switch0" "1" "0 1 2 3 4"
+	lan_mac=$(cat /sys/class/net/eth0/address)
+	wlan_mac=$(macaddr_add "$lan_mac" 1)
+	wan_mac=$(macaddr_add "$lan_mac" 2)
+	sta_mac=$(macaddr_add "$lan_mac" 3)
+	[ -n "$lan_mac" ] && ucidef_set_interface_macaddr lan $lan_mac
+	[ -n "$wlan_mac" ] && ucidef_set_wireless_macaddr radio0 $wlan_mac
+	[ -n "$wan_mac" ] && ucidef_set_interface_macaddr wan $wan_mac
+	[ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ]&& \
+	ucidef_set_interface_def_macaddr $lan_mac $wan_mac $wlan_mac $sta_mac
+	;;
+
+cf-e355ac)
+	ucidef_set_interfaces_lan_wan "eth0" "eth1"
+	lan_mac=$(cat /sys/class/net/eth0/address)
+	wlan_mac=$(macaddr_add "$lan_mac" 1)
+	wan_mac=$(macaddr_add "$lan_mac" 2)
+	sta_mac=$(macaddr_add "$lan_mac" 3)
+	[ -n "$lan_mac" ] && ucidef_set_interface_macaddr lan $lan_mac
+	[ -n "$wlan_mac" ] && ucidef_set_wireless_macaddr radio0 $wlan_mac
+	[ -n "$wan_mac" ] && ucidef_set_interface_macaddr wan $wan_mac
+	[ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ]&& \
+	ucidef_set_interface_def_macaddr $lan_mac $wan_mac $wlan_mac $sta_mac
+	;;
+
+cf-e380ac)
+	ucidef_set_interfaces_lan_wan "eth0" ""
+	lan_mac=$(cat /sys/class/net/eth0/address)
+	wlan_mac=$(macaddr_add "$lan_mac" 1)
+	wan_mac=$(macaddr_add "$lan_mac" 2)
+	sta_mac=$(macaddr_add "$lan_mac" 3)
+	[ -n "$lan_mac" ] && ucidef_set_interface_macaddr lan $lan_mac
+	[ -n "$wlan_mac" ] && ucidef_set_wireless_macaddr radio0 $wlan_mac
+	[ -n "$wan_mac" ] && ucidef_set_interface_macaddr wan $wan_mac
+	[ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ]&& \
+	ucidef_set_interface_def_macaddr $lan_mac $wan_mac $wlan_mac $sta_mac
+	;;
+
+cf-e520n | \
+cf-e530n)
+	ucidef_set_interfaces_lan_wan "eth0" "eth1"
+	ucidef_add_switch "switch0" "1" "1"
+	ucidef_add_switch_vlan "switch0" "1" "0 1 2 3 4"
+	lan_mac=$(cat /sys/class/net/eth0/address)
+	wlan_mac=$(macaddr_add "$lan_mac" 1)
+	wan_mac=$(macaddr_add "$lan_mac" 2)
+	sta_mac=$(macaddr_add "$lan_mac" 3)
+	[ -n "$lan_mac" ] && ucidef_set_interface_macaddr lan $lan_mac
+	[ -n "$wlan_mac" ] && ucidef_set_wireless_macaddr radio0 $wlan_mac
+	[ -n "$wan_mac" ] && ucidef_set_interface_macaddr wan $wan_mac
+	[ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ]&& \
+	ucidef_set_interface_def_macaddr $lan_mac $wan_mac $wlan_mac $sta_mac
+	;;
+
+cf-wr650ac)
+	ucidef_set_interfaces_lan_wan "eth0" "eth1"
+	ucidef_add_switch "switch0" "1" "1"
+	ucidef_add_switch_vlan "switch0" "1" "0 2 3 4 5"
+	ucidef_add_switch_vlan "switch0" "2" "1 6"
+	lan_mac=$(cat /sys/class/net/eth0/address)
+	wlan_mac=$(macaddr_add "$lan_mac" 1)
+	wan_mac=$(macaddr_add "$lan_mac" 2)
+	sta_mac=$(macaddr_add "$lan_mac" 3)
+	[ -n "$lan_mac" ] && ucidef_set_interface_macaddr lan $lan_mac
+	[ -n "$wlan_mac" ] && ucidef_set_wireless_macaddr radio0 $wlan_mac
+	[ -n "$wan_mac" ] && ucidef_set_interface_macaddr wan $wan_mac
+	[ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ] && [ -n "$lan_mac" ]&& \
+	ucidef_set_interface_def_macaddr $lan_mac $wan_mac $wlan_mac $sta_mac
+	;;
+
 ap136-020 |\
 ap135-020 |\
 tl-wr1043nd-v2 |\
