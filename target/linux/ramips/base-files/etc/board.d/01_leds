@@ -234,6 +234,8 @@ case $board in
 	whr-300hp2 |\
 	whr-600d |\
 	whr-1166d)
+		ucidef_set_led_switch "lan1" "LAN1" "comfast:green:lan" "switch0" "0x02"
+		ucidef_set_led_switch "wan1" "WAN1" "comfast:red:wan" 	"switch0" "0x01"		
 		ucidef_set_led_default "power" "power" "buffalo:green:power" "1"
 		ucidef_set_led_default "router" "router" "buffalo:green:router" "1"
 		;;
